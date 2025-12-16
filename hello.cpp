@@ -20,5 +20,4 @@ cin>> clas;
 cout <<" you enter class"<< clas <<"."<< endl;
 
    return 0;
-
 }
