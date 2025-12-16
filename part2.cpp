@@ -1,15 +1,18 @@
 #include <iostream>
 using namespace std;
 int main() {
-    int a = 5;
-    int b = 10;
-    int sum = a + b;
-    cout << " Agar " << a << "ni " << b << "ga qushsak javobi " << sum << " buladi \n" ;
-
-    int c;
-    int d;
-    cin >> c >> d;
-    int dev = c % d;
-    cout << c << "ni " << d << "ga bo`lsak javobi " << dev << " buladi ";
+    int age;
+    cout << " Ballingizni kiriting \n";
+    cin >> age;
+    if (age >= 90) {
+        cout << "Grant \n";
+    }   else if (age >= 50) {
+        cout << "Kontrakt \n";
+    } else if (age >= 30) {
+        cout << "Super kontrakt \n";
+    } else {
+        cout << "Qabul qilinmadi";
+    }
+    
     return 0;
 }
