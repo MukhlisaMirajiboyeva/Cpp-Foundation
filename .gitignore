@@ -1,0 +1,27 @@
+# C++ build artifacts
+*.exe
+*.obj
+*.o
+*.out
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# CMake build folders
+build/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# VS Code settings
+.vscode/
+
+# Other system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
