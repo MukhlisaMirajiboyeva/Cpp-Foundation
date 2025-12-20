@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int g1, g2, g3;
+
+    cin >> g1 >> g2 >> g3;
+
+    double average = (g1 + g2 + g3) / 3.0;
+
+    cout << average << endl;
+
+    return 0;
+}
