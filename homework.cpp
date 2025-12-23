@@ -2,7 +2,10 @@
 using namespace std;
 
 int main() {
-    int number   /*0*/;
+    int number = 6;
+    // int number;
+    // cout << "Enter the number"<< endl;
+    // cin >> number;
 
     if ( number > 0 ) {
         cout << "The number is positive." << endl ;
