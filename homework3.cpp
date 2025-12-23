@@ -12,7 +12,7 @@ int main () {
     if (operation == '+') {
         cout << "Result:" << num1 + num2 << endl;
     } else if (operation == '-') {
-        //num1 - num2
+         cout << "Result:" << num1 - num2 << endl;
     } else {
         cout << "Error: Invalid operator." << endl;
     }
