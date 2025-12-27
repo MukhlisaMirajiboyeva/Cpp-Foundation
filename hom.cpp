@@ -46,7 +46,7 @@ int main() {
 
 
 int main() {
-     setlocale (LC_ALL, "ru_RU.UTF-8");
+    setlocale (LC_ALL, "ru_RU.UTF-8");
     int height;
     bool hasTicket;
 
@@ -70,7 +70,7 @@ int main() {
 
 
 int main() {
-     setlocale (LC_ALL, "ru_RU.UTF-8");
+    setlocale (LC_ALL, "ru_RU.UTF-8");
     int n;
     cout << "Введите число: ";
     cin >> n;
@@ -87,7 +87,7 @@ int main() {
 
 
 int main() {
-       setlocale (LC_ALL, "ru_RU.UTF-8");
+    setlocale (LC_ALL, "ru_RU.UTF-8");
     
     int target = 1000;
     int sum = 0;
