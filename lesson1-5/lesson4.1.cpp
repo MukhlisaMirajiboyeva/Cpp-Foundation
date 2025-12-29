@@ -13,5 +13,6 @@ int main() {
     } else {
         cout << "нужно потренироваться еще" << endl;
     }  
+    
     return 0;
 }
