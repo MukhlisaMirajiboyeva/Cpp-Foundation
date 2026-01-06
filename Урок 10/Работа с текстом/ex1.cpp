@@ -11,6 +11,12 @@
 
 
 
+
+
+
+
+
+
 #include <iostream>
 #include <string>
 #include <algorithm> // для работы с регистрами, если нужно

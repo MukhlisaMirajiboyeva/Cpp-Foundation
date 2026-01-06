@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
 int main() {
+    SetConsoleOutputCP(65001); // Установка кодовой страницы UTF-8 для консоли Windows
     // Исходная строка
     string s = "Hello C++!";
     cout << "1. Исходная строка: " << s << endl;
