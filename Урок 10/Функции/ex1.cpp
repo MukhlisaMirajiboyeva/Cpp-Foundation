@@ -6,6 +6,7 @@
 (самую высокую цену, лучший балл и т.д.). Удобно вынести этот поиск в отдельную функцию.*/
 
 #include <iostream>
+#include <windows.h>
 using namespace std;
 
 // Функция принимает массив 'arr' и его размер 'n'
@@ -21,6 +22,7 @@ int findMax(int arr[], int n) {
 }
 
 int main() {
+    SetConsoleOutputCP(65001); 
     int myNumbers[5] = {12, 45, 2, 67, 31};
     
     // Вызываем функцию и передаем ей массив и число 5 (размер)
