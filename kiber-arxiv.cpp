@@ -19,12 +19,12 @@ int main() {
     int choice;
 
     while (true) {
-        cout << " КИБЕР-АРХИВ";
-        cout << "1. Добавить агента";
-        cout << "2. Показать всех";
-        cout << "3. Зашифровать агента";
-        cout << "4. Выход";
-        cout << "Выберите пункт:";
+        cout << "\n===== КИБЕР-АРХИВ =====\n";
+        cout << "1. Добавить агента\n";
+        cout << "2. Показать всех\n";
+        cout << "3. Зашифровать агента\n";
+        cout << "4. Выход\n";
+        cout << "Выберите пункт: ";
         cin >> choice;
 
         switch (choice) {
@@ -35,13 +35,13 @@ int main() {
             cout << "Введите имя агента: ";
             cin >> name;
             database.push_back(name);
-            cout << "Добавлено!";
+            cout << "Добавлено!\n";
             break;
         }
 
         
         case 2: {
-            cout << "Список агентов ";
+            cout << "\n=== Список агентов ===\n";
             for (int i = 0; i < database.size(); i++) {
                 cout << i << ": " << database[i] << endl;
             }
@@ -55,7 +55,7 @@ int main() {
             cin >> index;
 
             if (index < 0 || index >= database.size()) {
-                cout << "Ошибка: неправильный индекс!";
+                cout << "Ошибка: неправильный индекс!\n";
                 continue;
             }
 
@@ -75,20 +75,20 @@ int main() {
 
             
             database[index] = buffer;
- 
+
             
             delete[] buffer;
 
-            cout << "Агент зашифрован!";
+            cout << "Агент зашифрован!\n";
             break;
         }
 
         case 4:
-            cout << "Выход";
+            cout << "Выход...\n";
             return 0;
 
         default:
-            cout << "Неверный пункт меню!";
+            cout << "Неверный пункт меню!\n";
         }
     }
 
