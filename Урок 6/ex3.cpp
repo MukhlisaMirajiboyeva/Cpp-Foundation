@@ -5,6 +5,7 @@
 2. Используй && и !, чтобы проверить ситуацию.*/
 
 #include <iostream>
+
 using namespace std;
 
 int main() {

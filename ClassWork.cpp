@@ -122,8 +122,7 @@ int main () {
         }
     }
 
-    for (int x : v) cout << x << " ";
-    
+    for (int x : v) cout << x << " "; 
     return 0;
 
 }
