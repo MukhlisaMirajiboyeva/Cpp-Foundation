@@ -41,7 +41,7 @@ int main () {
             break; 
         }
         heroHP -= 368;
-        cout << "Вас атакавал осс. Ваше здаровье: " << heroHP << endl;
+        cout << "Вас атакавал босс. Ваше здаровье: " << heroHP << endl;
     }
     if (heroHP <= 0) {
         cout << "Вы проиграли!\n";
