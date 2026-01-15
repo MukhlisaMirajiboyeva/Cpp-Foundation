@@ -8,13 +8,14 @@
 using namespace std;
 
 double calculateAverage (const double* data, int size) {
+    if (size <= 0) return 0;
     double sum = 0;
     for (int i = 0; i < size; i++)
     {
         sum += *(data + i);
     }
     return sum/size;
-    }
+}
 
 int main() {
     SetConsoleOutputCP (65001);
@@ -27,29 +28,33 @@ int main() {
     cin >> serverCount;
 
     cpuLoads = new double[serverCount];
+    int actualDataCount = 0;
     for (int i = 0; i < serverCount; i++)
     {
         double loads;
-        cout << " начало цикла, введите количество: " << i+1;
+        cout << "Сервер #" << i + 1 << " - Введите нагрузку (%): ";
         cin >> loads;
         if (loads<0)
         {
-            cout << " не то значение " << i--;
+            cout << " не то значение ";
+            i--;
             continue;
         }
         cpuLoads[i] = loads;
+        actualDataCount++;
 
         if (loads>=100)
         {
-            alerts.push_back(" сбой, прекращение сбора данных"+to_string(i+1));
+            alerts.push_back(" сбой, прекращение сбора данных "+ to_string(i+1) + " cервер перегружен на 100%");
             break;
         }
     }
 
-    for (int i = 0; i < serverCount; i++) {
-        if (*(cpuLoads+i)>80)
+    double averageLoad = calculateAverage (cpuLoads, actualDataCount);
+    for (int i = 0; i < actualDataCount; i++) {
+        if (*(cpuLoads + i) > 80)
         {
-            alerts.push_back(" превышение нормы ");
+            alerts.push_back("ПРЕДУПРЕЖДЕНИЕ: Высокая нагрузка на сервере #" + to_string(i + 1) + " (" + to_string((int)cpuLoads[i]) + "%)");
         }
     }
 
@@ -59,8 +64,10 @@ int main() {
         cout << alerts[i] << endl;
     }
 
-    delete[] cpuLoads;
-    cpuLoads = nullptr;
+    if (cpuLoads != nullptr) {
+        delete[] cpuLoads;
+        cpuLoads = nullptr;
+    }
 
     return 0;
 }
