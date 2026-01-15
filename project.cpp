@@ -56,7 +56,7 @@ int main() {
     for (int i = 0; i < actualDataCount; i++) {
         if (*(cpuLoads + i) > 80) // Использование *(ptr + i)
         {
-            alerts.push_back(" превышение нормы ");
+            alerts.push_back("ПРЕДУПРЕЖДЕНИЕ: Высокая нагрузка на сервере #" + to_string(i + 1) + " (" + to_string((int)cpuLoads[i]) + "%)");
         }
     }
 
