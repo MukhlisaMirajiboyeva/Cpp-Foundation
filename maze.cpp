@@ -1,60 +1,97 @@
 #include <iostream>
+#include <vector>
 #include <windows.h>
-#include <string>
 
 using namespace std;
 
-int main() {
-    SetConsoleOutputCP(CP_UTF8);
+void movePlayer(int* currentX, int* currentY, int dx, int dy) {
+    *currentX += dx;
+    currentY += dy;
+}
 
-    int height = 10;
-    int width = 20;
+int main() {
+
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+    system("cls");
+
+    int height, width;
+    cout << "Введите высоту карты: ";
+    cin >> height;
+    cout << "Введите ширину карты: ";
+    cin >> width;
 
     char** map = new char*[height];
-    for (int y = 0; y < height; y++)
-        map[y] = new char[width];
+    for (int i = 0; i < height; i++) {
+        map[i] = new char[width];
+    }
 
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
-            if (y == 0 || y == height - 1 || x == 0 || x == width - 1)
+            if (x == 0 || y == 0 ||  x == width - 1 || y == height - 1)
+            {
                 map[y][x] = '#';
-            else
+
+            }
+            else{
                 map[y][x] = ' ';
+            }
         }
     }
 
-    int playerX = width / 2;
-    int playerY = height / 2;
+    int playerX = 1, playerY = 1;
     map[playerY][playerX] = '@';
 
-    bool running = true;
-    while (running) {
-        system("cls"); 
+    map[height - 2][width - 2] = 'E';
+
+    vector<char> history; 
+    char input;
+
+    while (true) {
+        system("cls");
         for (int y = 0; y < height; y++) {
-            for (int x = 0; x < width; x++) {
+            for (int x = 0; x < width; x++)
                 cout << map[y][x];
-            }
-            cout << endl;
+            cout << "\n";
         }
 
-        cout << "Введите команду (w/a/s/d - движение, q - выход): ";
-        string input;
+        cout << "Введите направление (w/a/s/d): ";
         cin >> input;
 
-        map[playerY][playerX] = ' ';
+        int dx = 0, dy = 0;
 
-        if (input == "w" && map[playerY - 1][playerX] != '#') playerY--;
-        else if (input == "s" && map[playerY + 1][playerX] != '#') playerY++;
-        else if (input == "a" && map[playerY][playerX - 1] != '#') playerX--;
-        else if (input == "d" && map[playerY][playerX + 1] != '#') playerX++;
-        else if (input == "q") running = false;
+        switch (input) {
+            case 'w': dy = -1; break;
+            case 's': dy = 1; break;
+            case 'a': dx = -1; break;
+            case 'd': dx = 1; break;
+            default: continue; 
+        }
 
-        map[playerY][playerX] = '@';
+        int newX = playerX + dx;
+        int newY = playerY + dy;
+
+        if (map[newY][newX] == '#') continue;
+
+        if (map[newY][newX] == 'E') {
+            history.push_back(input); 
+            cout << "Поздравляем! Вы достигли выхода!\n";
+            break;
+        }
+        map[playerY][playerX] = ' '; 
+        movePlayer(&playerX, &playerY, dx, dy);
+        map[playerY][playerX] = '@'; 
+
+        history.push_back(input);
     }
+cout << "История ходов: ";
+    for (char c : history) cout << c << ' '
+    cout << "\n";
 
-    for (int y = 0; y < height; y++)
-        delete[] map[y];
+    for (int i = height - 1; i >= 0; i--) {}
+        delete[] map[i];
     delete[] map;
+    map = nullptr;
 
     return 0;
 }
