@@ -38,30 +38,38 @@ int main(){
         string input;
         cin >> input;
 
+        // 1. Исправление: Проверка на пустой ввод (чтобы не тратить попытку)
+        if (input.empty()) continue;
+
         if (input == secret) {
             cout << "ДОСТУП РАЗРЕШЕН\n" ;
             break;
         }
+        // 2. Исправление: Запись неудачной попытки в историю.
+        /* Без history.push_back твой вектор остается пустым до конца программы, 
+        в ТЗ это обязательное условие для отслеживания прогресса игрока.*/
+        history.push_back(input);
 
-        if (input == "HELP"){
-            int* garbage = new int[2];
-            int found = 0;
-            
-            for (int i = 0; i < 5 && found < 2; i++){
-                if (string(wordList[i]) !=string(secret)) {
-                    garbage[found++] = i;
-                }
-            
+        if (input == "HELP") {
+        int* garbage = new int[2]; 
+        int found = 0;
+        
+        for (int i = 0; i < 5 && found < 2; i++) {
+            // Исправление: Сравниваем указатели напрямую (это быстрее и чище)
+            if (wordList[i] != secret) {
+                garbage[found++] = i;
             }
-
-            cout << "Удалены ложные вариант: ";
-            for (int i = 0; i < found; i++)
-            cout << wordList[garbage[i]] << " ";
-            cout << endl;
-            
-            delete[] garbage;
-            continue;
         }
+    
+        cout << "Удалены ложные варианты: "; 
+        for (int i = 0; i < found; i++) {
+            cout << wordList[garbage[i]] << " ";
+        }
+        cout << endl;
+        
+        delete[] garbage;
+        continue;
+    }
 
         cout << "Совпадений: " << getSimilarity(input.c_str(), secret) << endl;
 
@@ -70,6 +78,13 @@ int main(){
 
     if (attempts == 0)
     cout << "\nДОСТУП ЗАПРЕЩЕН\n";
+
+    // Добавление: Вывод истории всех попыток из вектора
+    cout << "История ваших проходов: ";
+    for (const string& attempt : history) {
+        cout << attempt << " ";
+    }
+    cout << endl;
 
     return 0 ;
 }
