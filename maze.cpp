@@ -6,7 +6,7 @@ using namespace std;
 
 void movePlayer(int* currentX, int* currentY, int dx, int dy) {
     *currentX += dx;
-    currentY += dy;
+    *currentY += dy;
 }
 
 int main() {
@@ -85,13 +85,15 @@ int main() {
         history.push_back(input);
     }
 cout << "История ходов: ";
-    for (char c : history) cout << c << ' '
+    for (char c : history) cout << c << ' ';
     cout << "\n";
 
-    for (int i = height - 1; i >= 0; i--) {}
-        delete[] map[i];
-    delete[] map;
-    map = nullptr;
+    // Шаг 6: Сложная очистка
+for (int i = 0; i < height; i++) {
+    delete[] map[i]; // 1. Удаляем каждую строку (массив чаров)
+}
+delete[] map;        // 2. Удаляем сам массив указателей
+map = nullptr;       // 3. Зануляем указатель для безопасности
 
     return 0;
 }
