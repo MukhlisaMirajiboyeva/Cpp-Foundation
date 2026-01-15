@@ -50,21 +50,29 @@ int main() {
         }
     }
 // --- ИСПРАВЛЕНИЕ: Вызов функции расчета (Шаг 5) ---
-    for (int i = 0; i < serverCount; i++) {
-        if (*(cpuLoads+i)>80)
+
+    
+    // Шаг 5: Анализ через арифметику указателей
+    for (int i = 0; i < actualDataCount; i++) {
+        if (*(cpuLoads + i) > 80) // Использование *(ptr + i)
         {
             alerts.push_back(" превышение нормы ");
         }
     }
 
+
+    // Шаг 6: Вывод истории из Vector исправить
     cout << " запись истории ";
     for (int i = 0; i < alerts.size(); i++)
     {
         cout << alerts[i] << endl;
     }
 
-    delete[] cpuLoads;
-    cpuLoads = nullptr;
+    // Шаг 7: Завершение и уборка
+    if (cpuLoads != nullptr) {
+        delete[] cpuLoads; // Освобождение памяти
+        cpuLoads = nullptr; // Зануление
+    }
 
     return 0;
 }
