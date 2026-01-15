@@ -68,6 +68,5 @@ int main() {
         delete[] cpuLoads;
         cpuLoads = nullptr;
     }
-
-    return 0;
+   return 0;
 }
