@@ -1,0 +1,8 @@
+name = (input())
+favourite_city = (input())
+city = (input())
+name - input("Как тебя зовут? " )
+favourite_city - input("Какой ваш любимый город? ")
+name = name.strip().title()
+city = city.strip().title()
+print(f"Привет, [Имя]! Я тоже хочу побывать в городе [Город].")
