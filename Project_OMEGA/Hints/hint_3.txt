@@ -1,0 +1,1 @@
+Откройте файл в цикле for line in file. Используйте метод line.startswith('CRITICAL').
