@@ -2,8 +2,7 @@
 📜 АКАДЕМИЯ МАГИИ: ЭКЗАМЕН ПО АЛХИМИИ
 ================================================================
 
-<img width="1024" height="1024" alt="Проект 2" src="https://github.com/user-attachments/assets/a7d26272-e523-4af1-b00b-dd6d553a6c2d" />
-
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/f7a19eae-5ebb-4847-b85f-a9149b039117" />
 
 Приветствуем тебя, юный алхимик!
 
