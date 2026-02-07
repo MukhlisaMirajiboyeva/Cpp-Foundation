@@ -6,7 +6,7 @@
 СТАТУС: КРИТИЧЕСКИЙ
 ЦЕЛЬ: ПРЕДОТВРАЩЕНИЕ ЦИФРОВОЙ КАТАСТРОФЫ
 
-<img width="1024" height="1024" alt="Проект 1" src="https://github.com/user-attachments/assets/ed387ddf-4a65-4528-ad84-620b3ba76427" />
+<img width="1080" height="1080" alt="Проект 1 (1)" src="https://github.com/user-attachments/assets/873c56b6-9f83-4bee-8e46-1845c1d14378" />
 
 Приветствую, Агент.
 
