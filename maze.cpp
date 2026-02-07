@@ -87,12 +87,22 @@ int main() {
 cout << "История ходов: ";
     for (char c : history) cout << c << ' ';
     cout << "\n";
+<<<<<<< HEAD
     
 for (int i = 0; i < height; i++) {
     delete[] map[i]; 
 }
 delete[] map;     
 map = nullptr;  
+=======
+
+    // Шаг 6: Сложная очистка
+for (int i = 0; i < height; i++) {
+    delete[] map[i]; // 1. Удаляем каждую строку (массив чаров)
+}
+delete[] map;        // 2. Удаляем сам массив указателей
+map = nullptr;       // 3. Зануляем указатель для безопасности
+>>>>>>> 84f35c08fc4a919f29597b052e8ecb43b83a41b6
 
     return 0;
 }
