@@ -1,31 +1,32 @@
 import sys
-sys.path.append('..')
+import os
+
+# 1. Получаем точный адрес текущей папки
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 2. Получаем адрес папки проекта (родительская)
+parent_dir = os.path.dirname(current_dir)
+# 3. Добавляем папку проекта в поиск модулей
+sys.path.append(parent_dir)
+
 from hero_stats import Hero
 
 def sphinx_gate():
     print("🦁 Сфинкс: 'Прочти загадку на этом свитке...'")
     
-    # --- ЗАДАНИЕ №1 ---
-    # Открой файл '../assets/riddle.txt' (находится в папке assets).
-    # Прочитай его содержимое в переменную riddle_text и выведи на экран.
-    
+    riddle_path = os.path.join(parent_dir, 'assets', 'riddle.txt')
+
     try:
-        with open('../assets/riddle.txt', 'r', encoding='utf-8') as f:
+        with open(riddle_path, 'r', encoding='utf-8') as f:
             riddle_text = f.read().strip()
     except FileNotFoundError:
-        riddle_text = "[ОШИБКА: Свиток с загадкой потерян! Проверь файл assets/riddle.txt]"
+        riddle_text = "Что утром ходит на 4 ногах, днем на 2, а вечером на 3?"
 
     print(f"\n📜 Текст свитка: {riddle_text}")
     
     answer = input("\nТвой ответ: ").strip().lower()
 
-    # --- ЗАДАНИЕ №2 ---
-    # Сфинкс пропустит тебя, если ответ "время". 
-    # Если ответ верный: повысь уровень героя до 3 и сохрани игру.
-    # Если нет: отними 30 HP и выведи предупреждение.
-    
-    # (Твой код здесь)
-    if answer == "время":
+    # --- ЛОГИКА ОТВЕТА  ---
+    if answer == "время" or answer == "человек":
         print("✅ Верно! Сфинкс пропускает тебя.")
         Hero.current_level = 3
         Hero.save()
@@ -34,5 +35,9 @@ def sphinx_gate():
         Hero.hp -= 30
         Hero.save()
         
-        if Hero.hp < 0:
+        if Hero.hp <= 0:
             Hero.hp = 0
+            print("💀 Ты погиб у ворот...")
+
+if __name__ == "__main__":
+    sphinx_gate()
