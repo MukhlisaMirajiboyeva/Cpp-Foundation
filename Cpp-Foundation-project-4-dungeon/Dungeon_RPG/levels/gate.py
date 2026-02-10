@@ -9,7 +9,12 @@ def sphinx_gate():
     # Открой файл '../assets/riddle.txt' (находится в папке assets).
     # Прочитай его содержимое в переменную riddle_text и выведи на экран.
     
-    riddle_text = "Что всегда идёт, но не имеет ног?" # ИСПРАВЬ ЭТО
+    try:
+        with open('../assets/riddle.txt', 'r', encoding='utf-8') as f:
+            riddle_text = f.read().strip()
+    except FileNotFoundError:
+        riddle_text = "[ОШИБКА: Свиток с загадкой потерян! Проверь файл assets/riddle.txt]"
+
     print(f"\n📜 Текст свитка: {riddle_text}")
     
     answer = input("\nТвой ответ: ").strip().lower()
