@@ -1,5 +1,9 @@
 import os
 
+# Находим путь к папке, где лежит этот файл (hero_stats.py)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SAVE_PATH = os.path.join(BASE_DIR, "save_game.dat")
+
 class Hero:
     hp = 100
     inventory = []
@@ -7,9 +11,9 @@ class Hero:
 
     @classmethod
     def save(cls):
-        # Код сохранения (оставляем как пример работы с файлами)
-        with open("save_game.dat", "w", encoding="utf-8") as f:
-            f.write(f"{cls.hp}\n{cls.current_level}\n{','.join(cls.inventory)}")
+        # Используем SAVE_PATH вместо просто имени файла
+        with open(SAVE_PATH, "w", encoding="utf-8") as f:
+            f.write(f"{cls.hp}\n{cls.current_level}\n{','.join(cls.inventory)}")inventory)}")
 
     @classmethod
     def load(cls):
