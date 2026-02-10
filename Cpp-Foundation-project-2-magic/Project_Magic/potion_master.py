@@ -11,7 +11,10 @@ def main():
 
  
     clean_items = list(filter(lambda x: "Гнилой" not in x and "Мертвая" not in x, items))
-    
+    '''
+    bad_stuff = ["Гнилой", "Мертвая", "Плесневелый", "Протухший"]
+    clean_items = list(filter(lambda x: not any(bad in x for bad in bad_stuff), items))
+    '''    
 
     print(f"Вы очистили стол. Осталось: {clean_items}")
 
