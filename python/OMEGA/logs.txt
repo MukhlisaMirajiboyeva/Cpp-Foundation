@@ -1,0 +1,4 @@
+INFO System boot
+WARNING Low memory
+CRITICAL Unauthorized access detected
+INFO Shutdown
