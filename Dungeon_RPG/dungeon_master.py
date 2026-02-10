@@ -1,6 +1,7 @@
 from hero_stats import Hero
 import os
 
+
 def main():
     Hero.load()
     print("🔮 Магический Кристалл активирован...")
