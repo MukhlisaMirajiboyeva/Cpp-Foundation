@@ -1,5 +1,13 @@
 import sys
-sys.path.append('..')
+import os
+
+# 1. Получаем точный адрес текущей папки
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# 2. Получаем адрес папки проекта (родительская)
+parent_dir = os.path.dirname(current_dir)
+# 3. Добавляем папку проекта в поиск модулей
+sys.path.append(parent_dir)
+
 from hero_stats import Hero
 
 def final_battle():
