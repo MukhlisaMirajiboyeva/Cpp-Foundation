@@ -24,13 +24,19 @@ def battle():
             Hero.hp -= 15
         elif damage == 20:
             print(f"Вы нанесли критический урон!")
-            goblin_hp -= 40
+            goblin_hp -= 40 #goblin_hp -= (damage * 2).
         else:
             goblin_hp -= damage
             print(f"⚔️ Удар на {damage}!")
 
-        if Hero.hp > 0:
-            print("🏆 Гоблин повержен! Вы нашли 'Медный Ключ'.")
-            Hero.inventory.append("Медный Ключ")
-            Hero.current_level = 2
-            Hero.save()
+    # --- ВЫХОД ИЗ ЦИКЛА (Обрати внимание на отступы!) ---
+    # Мы попадаем сюда только когда кто-то умер (HP <= 0)
+    
+    if Hero.hp > 0:
+        print("🏆 Гоблин повержен! Вы нашли 'Медный Ключ'.")
+        Hero.inventory.append("Медный Ключ")
+        Hero.current_level = 2
+        Hero.save()
+
+if __name__ == "__main__":
+    battle()
