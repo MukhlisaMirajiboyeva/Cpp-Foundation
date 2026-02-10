@@ -37,6 +37,9 @@ def battle():
         Hero.inventory.append("Медный Ключ")
         Hero.current_level = 2
         Hero.save()
+        print("💾 Прогресс сохранен. Запустите dungeon_master.py")
+    else:
+        print("\n💀 Вы пали в бою... Игра окончена.")
 
 if __name__ == "__main__":
     battle()
