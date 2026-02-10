@@ -32,6 +32,7 @@ def sphinx_gate():
     else:
         print("❌ Неверно! Сфинкс атакует тебя! -30 HP")
         Hero.hp -= 30
+        Hero.save()
         
         if Hero.hp < 0:
             Hero.hp = 0
